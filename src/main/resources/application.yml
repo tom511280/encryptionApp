@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev                                                              
+  mvc:
+    view:
+      prefix: /view/
+      suffix: .jsp
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+   
+---
+spring:                                                     
+  profiles: dev   
+server:
+  port: 8080                                             
+  context-path: /EncryptionApp
