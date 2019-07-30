@@ -1,7 +1,32 @@
 package com.encryptionApp.service.impl;
 
-import com.encryptionApp.service.RSACrypto;
+import org.springframework.stereotype.Service;
 
-public class RSACryptoImpl implements RSACrypto{
+import com.encryptionApp.service.Crypto;
+import com.encryptionApp.vo.BaseCreateKeyResult;
+import com.encryptionApp.vo.CreateKeyRequest;
+import com.encryptionApp.vo.CryptoBaseRequest;
+import com.encryptionApp.vo.DecryptResult;
+import com.encryptionApp.vo.EncryptResult;
 
+@Service("RSACryptoImpl")
+public class RSACryptoImpl implements Crypto{
+
+	@Override
+	public EncryptResult getEncryptResult(CryptoBaseRequest cryptoBaseRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DecryptResult getDecryptResult(CryptoBaseRequest cryptoBaseRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BaseCreateKeyResult createKey(CreateKeyRequest createKeyRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

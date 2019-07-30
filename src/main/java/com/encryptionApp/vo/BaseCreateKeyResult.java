@@ -1,17 +1,12 @@
 package com.encryptionApp.vo;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 import io.swagger.annotations.ApiModelProperty;
 
-public class CryptoBaseRequest {
+public class BaseCreateKeyResult {
 	
-	@Valid
-	@NotNull(message="運行演算法為必填參數")
-	@ApiModelProperty(value = "運行演算法")
+	@ApiModelProperty(value = "演算法")
 	private String algorithm;
-	
+
 	public String getAlgorithm() {
 		return algorithm;
 	}
@@ -19,4 +14,5 @@ public class CryptoBaseRequest {
 	public void setAlgorithm(String algorithm) {
 		this.algorithm = algorithm;
 	}
+
 }
