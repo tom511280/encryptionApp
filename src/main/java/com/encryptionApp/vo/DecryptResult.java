@@ -9,6 +9,11 @@ public class DecryptResult {
 	
 	@ApiModelProperty(value = "解密結果文字")
 	private String decryptText;
+	
+	public DecryptResult(){}
+	public DecryptResult(CryptoTextRequest cryptoTextRequest){
+		algorithm = cryptoTextRequest.getAlgorithm();
+	}
 
 	public String getAlgorithm() {
 		return algorithm;

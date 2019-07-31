@@ -2,6 +2,10 @@ package com.encryptionApp.service;
 
 import com.encryptionApp.vo.CryptoBaseRequest;
 
+/**
+ * @author 80005458
+ * @see 取得演算法簡單工廠模式
+ */
 public interface CryptoFactory {
 	
 	/**

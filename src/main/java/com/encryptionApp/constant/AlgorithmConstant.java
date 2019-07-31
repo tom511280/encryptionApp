@@ -14,7 +14,12 @@ public enum AlgorithmConstant {
 	/**
 	 * BASE64
 	 */
-	RSA("3", "RSA");
+	RSA("3", "RSA"),
+	
+	/**
+	 * BASE64
+	 */
+	PBE("3", "PBE");
 
 	/**
 	 * 代碼

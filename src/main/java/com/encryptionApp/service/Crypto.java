@@ -3,6 +3,7 @@ package com.encryptionApp.service;
 import com.encryptionApp.vo.BaseCreateKeyResult;
 import com.encryptionApp.vo.CreateKeyRequest;
 import com.encryptionApp.vo.CryptoBaseRequest;
+import com.encryptionApp.vo.CryptoTextRequest;
 import com.encryptionApp.vo.DecryptResult;
 import com.encryptionApp.vo.EncryptResult;
 
@@ -13,14 +14,14 @@ public interface Crypto {
 	 * @param 未加密文本
 	 * @return 加密文本
 	 */
-	public EncryptResult getEncryptResult(CryptoBaseRequest cryptoBaseRequest);
+	public EncryptResult getEncryptResult(CryptoTextRequest cryptoTextRequest);
 
 	/**
 	 * @see 取得解密結果回傳
 	 * @param 加密文本
 	 * @return	未加密文本
 	 */
-	public DecryptResult getDecryptResult(CryptoBaseRequest cryptoBaseRequest);
+	public DecryptResult getDecryptResult(CryptoTextRequest cryptoTextRequest);
 	
 	/**
 	 * @see 產生金鑰

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.encryptionApp.service.Crypto;
 import com.encryptionApp.vo.BaseCreateKeyResult;
 import com.encryptionApp.vo.CreateKeyRequest;
-import com.encryptionApp.vo.CryptoBaseRequest;
+import com.encryptionApp.vo.CryptoTextRequest;
 import com.encryptionApp.vo.DecryptResult;
 import com.encryptionApp.vo.EncryptResult;
 
@@ -13,13 +13,13 @@ import com.encryptionApp.vo.EncryptResult;
 public class RSACryptoImpl implements Crypto{
 
 	@Override
-	public EncryptResult getEncryptResult(CryptoBaseRequest cryptoBaseRequest) {
+	public EncryptResult getEncryptResult(CryptoTextRequest cryptoTextRequest) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DecryptResult getDecryptResult(CryptoBaseRequest cryptoBaseRequest) {
+	public DecryptResult getDecryptResult(CryptoTextRequest cryptoTextRequest) {
 		// TODO Auto-generated method stub
 		return null;
 	}

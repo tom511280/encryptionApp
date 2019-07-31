@@ -9,6 +9,11 @@ public class EncryptResult {
 	
 	@ApiModelProperty(value = "加密結果文字")
 	private String encryptText;
+	
+	public EncryptResult(){}
+	public EncryptResult(CryptoTextRequest cryptoTextRequest){
+		algorithm = cryptoTextRequest.getAlgorithm();
+	}
 
 	public String getAlgorithm() {
 		return algorithm;
