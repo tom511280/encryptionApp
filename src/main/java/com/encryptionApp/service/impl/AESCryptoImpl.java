@@ -4,6 +4,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.text.RandomStringGenerator;
 
 import javax.annotation.PostConstruct;
 import javax.crypto.Cipher;
@@ -27,6 +28,7 @@ public class AESCryptoImpl implements Crypto{
 
 	private Cipher encryptCipher;
     private Cipher decryptCipher;
+    private RandomStringGenerator generator;
     
     @Value(value = "${AES.key}")
     private String aeskey;
@@ -42,6 +44,14 @@ public class AESCryptoImpl implements Crypto{
     	decryptCipher = Cipher.getInstance(AlgorithmConstant.AES.getMessage());
     	decryptCipher.init(Cipher.DECRYPT_MODE, this.bulidKey(key));
     }
+    
+    //初始化產生key工具
+    private void initCreateKey() throws InvalidKeyException, Exception{
+    	char[][] pairs = {{'a','z'},{'A','Z'},{'0','9'}};
+		generator = new RandomStringGenerator.Builder().withinRange(pairs).build();
+    }
+    
+    
     
     //建立金鑰
     private SecretKey bulidKey(String key) throws Exception{
@@ -87,8 +97,16 @@ public class AESCryptoImpl implements Crypto{
 	}
 
 	@Override
-	public CreateKeyResult createKey(CreateKeyRequest createKeyRequest) {
-		// TODO Auto-generated method stub
-		return null;
+	public CreateKeyResult createKey(CreateKeyRequest createKeyRequest) throws InvalidKeyException, Exception {
+		//初始化
+		CreateKeyResult createKeyResult = new CreateKeyResult(createKeyRequest);
+		int keyLength = 32;
+		this.initCreateKey();
+		String randomString = generator.generate(keyLength);
+	
+		//產生key
+		createKeyResult.setKey(randomString);
+		createKeyResult.setIsSymmetric(true);
+		return createKeyResult;
 	}	
 }

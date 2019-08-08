@@ -20,6 +20,11 @@ public class CreateKeyResult extends BaseResult{
 	@ApiModelProperty(value = "是否為對稱式加密")
 	private Boolean isSymmetric;
 
+	public CreateKeyResult(){}
+	public CreateKeyResult(CreateKeyRequest createKeyRequest){
+		super.setAlgorithm(createKeyRequest.getAlgorithm());
+	}
+	
 	public String getKey() {
 		return key;
 	}

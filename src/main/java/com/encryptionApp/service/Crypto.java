@@ -32,7 +32,9 @@ public interface Crypto {
 	 * @see 產生金鑰
 	 * @param 欲產生的金鑰類型
 	 * @return	金鑰
+	 * @throws Exception 
+	 * @throws InvalidKeyException 
 	 */
-	public CreateKeyResult createKey(CreateKeyRequest createKeyRequest);
+	public CreateKeyResult createKey(CreateKeyRequest createKeyRequest) throws InvalidKeyException, Exception;
 
 }

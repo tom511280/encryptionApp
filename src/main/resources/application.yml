@@ -17,4 +17,4 @@ server:
   port: 8080                                             
   context-path: /EncryptionApp
 AES:
-  key: X9F45qoPCLveeFWw83QkyvZoG8hxrKj6meeUqkyZF+k=
+  key: test1234test1234test1234test1234
