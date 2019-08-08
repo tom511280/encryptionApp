@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.encryptionApp.constant.AlgorithmConstant;
 import com.encryptionApp.service.CryptoFactory;
 import com.encryptionApp.vo.CryptoBaseRequest;
 import com.encryptionApp.vo.CryptoTextRequest;
@@ -20,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Controller
 @RequestMapping(value = "BASE64Crypto")
-public class Base64CryptoController {
+public class BASE64CryptoController {
 
 	@Autowired
 	private CryptoFactory cryptoFactory;
@@ -32,9 +33,10 @@ public class Base64CryptoController {
 	 * @throws Exception 
 	 */
 	@ApiOperation(value = "進行BASE64資料加密", notes = "進行BASE64資料加密")
-	@RequestMapping(value = "doBASE64encrypt", method = RequestMethod.POST)
+	@RequestMapping(value = "doBASE64Encrypt", method = RequestMethod.POST)
 	@ResponseBody
-	public RestfulResponse<EncryptResult> doBASE64encrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
+	public RestfulResponse<EncryptResult> doBASE64Encrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
+		cryptoTextRequest.setAlgorithm(AlgorithmConstant.BASE64.getCode());
 		return new RestfulResponse<EncryptResult>(cryptoFactory.getCryptoAlgorithm(cryptoTextRequest).getEncryptResult(cryptoTextRequest));
 	}
 	
@@ -45,9 +47,10 @@ public class Base64CryptoController {
 	 * @throws Exception 
 	 */
 	@ApiOperation(value = "進行BASE64資料解密", notes = "進行BASE64資料解密")
-	@RequestMapping(value = "doBASE64decrypt", method = RequestMethod.POST)
+	@RequestMapping(value = "doBASE64Decrypt", method = RequestMethod.POST)
 	@ResponseBody
-	public RestfulResponse<DecryptResult> doBASE64decrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
+	public RestfulResponse<DecryptResult> doBASE64Decrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
+		cryptoTextRequest.setAlgorithm(AlgorithmConstant.BASE64.getCode());
 		return new RestfulResponse<DecryptResult>(cryptoFactory.getCryptoAlgorithm(cryptoTextRequest).getDecryptResult(cryptoTextRequest));
 	}
 }

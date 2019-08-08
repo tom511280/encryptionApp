@@ -2,18 +2,31 @@ package com.encryptionApp.vo;
 
 import io.swagger.annotations.ApiModelProperty;
 
-
 /**
  * @author 80005458
- * @see 非對稱式產生金鑰結果
+ * @see 產生金鑰結果
  */
-public class AsymmetricCreateKeyResult extends BaseCreateKeyResult{
+public class CreateKeyResult extends BaseResult{
+	
+	@ApiModelProperty(value = "金鑰")
+	private String key;
 	
 	@ApiModelProperty(value = "公鑰")
 	private String publicKey;
 	
 	@ApiModelProperty(value = "私鑰")
 	private String privatekey;
+	
+	@ApiModelProperty(value = "是否為對稱式加密")
+	private Boolean isSymmetric;
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
 
 	public String getPublicKey() {
 		return publicKey;
@@ -29,6 +42,13 @@ public class AsymmetricCreateKeyResult extends BaseCreateKeyResult{
 
 	public void setPrivatekey(String privatekey) {
 		this.privatekey = privatekey;
-	}	
-	
+	}
+
+	public Boolean getIsSymmetric() {
+		return isSymmetric;
+	}
+
+	public void setIsSymmetric(Boolean isSymmetric) {
+		this.isSymmetric = isSymmetric;
+	}
 }

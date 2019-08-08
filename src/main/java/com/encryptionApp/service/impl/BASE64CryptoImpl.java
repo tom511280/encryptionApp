@@ -5,9 +5,8 @@ import java.util.Base64;
 import org.springframework.stereotype.Service;
 
 import com.encryptionApp.service.Crypto;
-import com.encryptionApp.vo.BaseCreateKeyResult;
 import com.encryptionApp.vo.CreateKeyRequest;
-import com.encryptionApp.vo.CryptoBaseRequest;
+import com.encryptionApp.vo.CreateKeyResult;
 import com.encryptionApp.vo.CryptoTextRequest;
 import com.encryptionApp.vo.DecryptResult;
 import com.encryptionApp.vo.EncryptResult;
@@ -33,8 +32,8 @@ public class BASE64CryptoImpl implements Crypto{
 	}
 
 	@Override
-	public BaseCreateKeyResult createKey(CreateKeyRequest createKeyRequest) {
-		return new BaseCreateKeyResult();
+	public CreateKeyResult createKey(CreateKeyRequest createKeyRequest) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
 }

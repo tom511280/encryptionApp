@@ -2,7 +2,7 @@ package com.encryptionApp.vo;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class BaseCreateKeyResult {
+public class BaseResult {
 	
 	@ApiModelProperty(value = "演算法")
 	private String algorithm;

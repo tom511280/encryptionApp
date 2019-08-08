@@ -21,53 +21,52 @@ import com.encryptionApp.vo.RestfulResponse;
 import io.swagger.annotations.ApiOperation;
 
 @Controller
-@RequestMapping(value = "AESCrypto")
-public class AESCryptoController {
+@RequestMapping(value = "RSACrypto")
+public class RSACryptoController {
 	
 	@Autowired
 	private CryptoFactory cryptoFactory;
-	
+
 	/**
-	 * @see 進行AES資料加密
+	 * @see 進行RSA資料加密
 	 * @param CryptoBaseRequest
-	 * @return RestfulResponse<EncryptResult>
+	 * @return
 	 * @throws Exception 
 	 */
-	@ApiOperation(value = "進行AES資料加密", notes = "進行AES資料加密")
-	@RequestMapping(value = "doAESEncrypt", method = RequestMethod.POST)
+	@ApiOperation(value = "進行RSA資料加密", notes = "進行RSA資料加密")
+	@RequestMapping(value = "doRSAEncrypt", method = RequestMethod.POST)
 	@ResponseBody
-	public RestfulResponse<EncryptResult> doAESEncrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
-		cryptoTextRequest.setAlgorithm(AlgorithmConstant.AES.getCode());
+	public RestfulResponse<EncryptResult> doRSAEncrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
+		cryptoTextRequest.setAlgorithm(AlgorithmConstant.RSA.getCode());
 		return new RestfulResponse<EncryptResult>(cryptoFactory.getCryptoAlgorithm(cryptoTextRequest).getEncryptResult(cryptoTextRequest));
 	}
 	
 	/**
-	 * @see 進行AES資料解密
+	 * @see 進行RSA資料解密
 	 * @param CryptoBaseRequest
-	 * @return RestfulResponse<DecryptResult>
+	 * @return
 	 * @throws Exception 
 	 */
-	@ApiOperation(value = "進行AES資料解密", notes = "進行AES資料解密")
-	@RequestMapping(value = "doAESDecrypt", method = RequestMethod.POST)
+	@ApiOperation(value = "進行RSA資料解密", notes = "進行RSA資料解密")
+	@RequestMapping(value = "doRSADecrypt", method = RequestMethod.POST)
 	@ResponseBody
-	public RestfulResponse<DecryptResult> doAESDecrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
-		cryptoTextRequest.setAlgorithm(AlgorithmConstant.AES.getCode());
+	public RestfulResponse<DecryptResult> doRSADecrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
+		cryptoTextRequest.setAlgorithm(AlgorithmConstant.RSA.getCode());
 		return new RestfulResponse<DecryptResult>(cryptoFactory.getCryptoAlgorithm(cryptoTextRequest).getDecryptResult(cryptoTextRequest));
 	}
 	
-	
 	/**
-	 * @see 產生AES金鑰
+	 * @see 產生RSA金鑰
 	 * @return RestfulResponse<CreateKeyResult>
 	 * @throws Exception 
 	 * @throws NoSuchAlgorithmException 
 	 */
-	@ApiOperation(value = "產生AES金鑰", notes = "產生AES金鑰")
-	@RequestMapping(value = "createAESKey", method = RequestMethod.POST)
+	@ApiOperation(value = "產生RSA金鑰", notes = "產生RSA金鑰")
+	@RequestMapping(value = "createRSAKey", method = RequestMethod.POST)
 	@ResponseBody
-	public RestfulResponse<CreateKeyResult>createAESKey() throws Exception {
+	public RestfulResponse<CreateKeyResult>createRSAKey() throws Exception {
 		CreateKeyRequest createKeyRequest = new CreateKeyRequest();
-		createKeyRequest.setAlgorithm(AlgorithmConstant.AES.getCode());
+		createKeyRequest.setAlgorithm(AlgorithmConstant.RSA.getCode());
 		return new RestfulResponse<CreateKeyResult>(cryptoFactory.getCryptoAlgorithm(createKeyRequest).createKey(createKeyRequest));
 	}
 
