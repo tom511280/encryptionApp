@@ -33,7 +33,6 @@ public class BASE64CryptoImpl implements Crypto{
 
 	@Override
 	public CreateKeyResult createKey(CreateKeyRequest createKeyRequest) {
-		// TODO Auto-generated method stub
-		return null;
+		return new CreateKeyResult();
 	}
 }

@@ -63,7 +63,7 @@ public class AESCryptoController {
 	 * @throws NoSuchAlgorithmException 
 	 */
 	@ApiOperation(value = "產生AES金鑰", notes = "產生AES金鑰")
-	@RequestMapping(value = "createAESKey", method = RequestMethod.POST)
+	@RequestMapping(value = "createAESKey", method = RequestMethod.GET)
 	@ResponseBody
 	public RestfulResponse<CreateKeyResult>createAESKey() throws Exception {
 		CreateKeyRequest createKeyRequest = new CreateKeyRequest();

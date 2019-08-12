@@ -19,38 +19,38 @@ import com.encryptionApp.vo.RestfulResponse;
 import io.swagger.annotations.ApiOperation;
 
 @Controller
-@RequestMapping(value = "BASE64Crypto")
-public class BASE64CryptoController {
-
+@RequestMapping(value = "PBECrypto")
+public class PBECryptoController {
+	
 	@Autowired
 	private CryptoFactory cryptoFactory;
-
+	
 	/**
-	 * @see 進行BASE64資料加密
+	 * @see 進行PBE資料加密
 	 * @param CryptoBaseRequest
-	 * @return
+	 * @return RestfulResponse<EncryptResult>
 	 * @throws Exception 
 	 */
-	@ApiOperation(value = "進行BASE64資料加密", notes = "進行BASE64資料加密")
-	@RequestMapping(value = "doBASE64Encrypt", method = RequestMethod.POST)
+	@ApiOperation(value = "進行PBE資料加密", notes = "進行PBE資料加密")
+	@RequestMapping(value = "doPBEEncrypt", method = RequestMethod.POST)
 	@ResponseBody
-	public RestfulResponse<EncryptResult> doBASE64Encrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
-		cryptoTextRequest.setAlgorithm(AlgorithmConstant.BASE64.getCode());
+	public RestfulResponse<EncryptResult> doPBEEncrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
+		cryptoTextRequest.setAlgorithm(AlgorithmConstant.PBE.getCode());
 		return new RestfulResponse<EncryptResult>(cryptoFactory.getCryptoAlgorithm(cryptoTextRequest).getEncryptResult(cryptoTextRequest));
 	}
 	
 	/**
-	 * @see 進行BASE64資料解密
+	 * @see 進行PBE資料解密
 	 * @param CryptoBaseRequest
-	 * @return
+	 * @return RestfulResponse<DecryptResult>
 	 * @throws Exception 
 	 */
-	@ApiOperation(value = "進行BASE64資料解密", notes = "進行BASE64資料解密")
-	@RequestMapping(value = "doBASE64Decrypt", method = RequestMethod.POST)
+	@ApiOperation(value = "進行PBE資料解密", notes = "進行PBE資料解密")
+	@RequestMapping(value = "doPBEDecrypt", method = RequestMethod.POST)
 	@ResponseBody
-	public RestfulResponse<DecryptResult> doBASE64Decrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
-		cryptoTextRequest.setAlgorithm(AlgorithmConstant.BASE64.getCode());
+	public RestfulResponse<DecryptResult> doPBEDecrypt(@Valid @RequestBody CryptoTextRequest cryptoTextRequest) throws Exception {
+		cryptoTextRequest.setAlgorithm(AlgorithmConstant.PBE.getCode());
 		return new RestfulResponse<DecryptResult>(cryptoFactory.getCryptoAlgorithm(cryptoTextRequest).getDecryptResult(cryptoTextRequest));
 	}
-}
 
+}

@@ -18,7 +18,7 @@ public class CreateKeyResult extends BaseResult{
 	private String privatekey;
 	
 	@ApiModelProperty(value = "是否為對稱式加密")
-	private Boolean isSymmetric;
+	private String type;
 
 	public CreateKeyResult(){}
 	public CreateKeyResult(CreateKeyRequest createKeyRequest){
@@ -48,12 +48,10 @@ public class CreateKeyResult extends BaseResult{
 	public void setPrivatekey(String privatekey) {
 		this.privatekey = privatekey;
 	}
-
-	public Boolean getIsSymmetric() {
-		return isSymmetric;
+	public String getType() {
+		return type;
 	}
-
-	public void setIsSymmetric(Boolean isSymmetric) {
-		this.isSymmetric = isSymmetric;
+	public void setType(String type) {
+		this.type = type;
 	}
 }

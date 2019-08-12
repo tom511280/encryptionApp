@@ -30,6 +30,7 @@
 		<commons-fileupload.version>1.3.2</commons-fileupload.version>
 		<javax.mail.version>1.6.2</javax.mail.version>
 		<commons-text.version>1.6</commons-text.version>
+		<jasypt.version>2.0.0</jasypt.version>
 		<resource.delimiter>#</resource.delimiter>
 		<resource.delimiter>#</resource.delimiter>
   </properties>
@@ -148,6 +149,13 @@
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
+		</dependency>
+		
+		<!-- PBE加密 -->
+		<dependency>
+    		<groupId>com.github.ulisesbocchio</groupId>
+    		<artifactId>jasypt-spring-boot</artifactId>
+    		<version>${jasypt.version}</version>
 		</dependency>
 	</dependencies>
 	

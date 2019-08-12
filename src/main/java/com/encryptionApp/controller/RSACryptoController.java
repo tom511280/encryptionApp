@@ -62,7 +62,7 @@ public class RSACryptoController {
 	 * @throws NoSuchAlgorithmException 
 	 */
 	@ApiOperation(value = "產生RSA金鑰", notes = "產生RSA金鑰")
-	@RequestMapping(value = "createRSAKey", method = RequestMethod.POST)
+	@RequestMapping(value = "createRSAKey", method = RequestMethod.GET)
 	@ResponseBody
 	public RestfulResponse<CreateKeyResult>createRSAKey() throws Exception {
 		CreateKeyRequest createKeyRequest = new CreateKeyRequest();

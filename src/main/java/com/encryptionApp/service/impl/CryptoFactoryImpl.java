@@ -24,6 +24,12 @@ public class CryptoFactoryImpl implements CryptoFactory{
 	@Qualifier("RSACryptoImpl")
 	private Crypto rsaCryptoImpl;
 	
+	@Autowired
+	@Qualifier("PBECryptoImpl")
+	private Crypto pbeCryptoImpl;
+	
+	
+	
 	@Override
 	public Crypto getCryptoAlgorithm(CryptoBaseRequest cryptoBaseRequest) throws Exception {
 		String code = cryptoBaseRequest.getAlgorithm();
@@ -32,7 +38,7 @@ public class CryptoFactoryImpl implements CryptoFactory{
 		if(code.equals(AlgorithmConstant.BASE64.getCode())) return base64CryptoImpl;
 		else if(code.equals(AlgorithmConstant.AES.getCode())) return aesCryptoImpl;
 		else if(code.equals(AlgorithmConstant.RSA.getCode())) return rsaCryptoImpl;
-		else if(code.equals(AlgorithmConstant.PBE.getCode())) return rsaCryptoImpl;
+		else if(code.equals(AlgorithmConstant.PBE.getCode())) return pbeCryptoImpl;
 		else throw new Exception("找不到演算法");
 		
 	}

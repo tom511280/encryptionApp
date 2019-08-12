@@ -1,17 +1,14 @@
 package com.encryptionApp.service.impl;
 
 import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.text.RandomStringGenerator;
 
-import javax.annotation.PostConstruct;
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.text.RandomStringGenerator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -35,13 +32,13 @@ public class AESCryptoImpl implements Crypto{
     
     //初始化AES加密工具
     private void initEncryptCipher(String key) throws InvalidKeyException, Exception{
-    	encryptCipher = Cipher.getInstance(AlgorithmConstant.AES.getMessage());
+    	encryptCipher = Cipher.getInstance(AlgorithmConstant.AES.getName());
     	encryptCipher.init(Cipher.ENCRYPT_MODE, this.bulidKey(key));
     }
     
     //初始化AES解密工具
     private void initDecryptCipher(String key) throws InvalidKeyException, Exception{
-    	decryptCipher = Cipher.getInstance(AlgorithmConstant.AES.getMessage());
+    	decryptCipher = Cipher.getInstance(AlgorithmConstant.AES.getName());
     	decryptCipher.init(Cipher.DECRYPT_MODE, this.bulidKey(key));
     }
     
@@ -56,7 +53,7 @@ public class AESCryptoImpl implements Crypto{
     //建立金鑰
     private SecretKey bulidKey(String key) throws Exception{
     	try {
-            return new SecretKeySpec(Base64.decodeBase64(key), AlgorithmConstant.AES.getMessage());
+            return new SecretKeySpec(Base64.decodeBase64(key), AlgorithmConstant.AES.getName());
         } catch (Exception e) {
             throw new Exception("buildSecretKey Catch Exception", e);
         }
@@ -106,7 +103,7 @@ public class AESCryptoImpl implements Crypto{
 	
 		//產生key
 		createKeyResult.setKey(randomString);
-		createKeyResult.setIsSymmetric(true);
+		createKeyResult.setType(AlgorithmConstant.AES.getType());
 		return createKeyResult;
 	}	
 }
